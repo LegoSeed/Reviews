@@ -23,5 +23,6 @@ app.post('/reviews', (req, res) => {
 });
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Server listening at localhost:${3000}!`);
 });

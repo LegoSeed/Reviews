@@ -11,8 +11,6 @@ const overviewSchema = new mongoose.Schema({
   star5: Number,
 });
 
-mongoose.model.Overview = Overview;
-
 const Overview = mongoose.model('Overview', overviewSchema);
 
 module.exports = Overview;
