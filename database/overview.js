@@ -9,7 +9,7 @@ const overviewSchema = new mongoose.Schema({
   star3: Number,
   star4: Number,
   star5: Number,
-})
+});
 
 mongoose.model.Overview = Overview;
 
