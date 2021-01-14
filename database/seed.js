@@ -1,27 +1,31 @@
-import faker from 'faker';
-import Review from './reviews';
-
+const faker = require('faker');
+const Review = require('./reviews');
 const db = require('./index.js');
 
 const randNum = function (max) {
   return Math.floor(Math.random() * Math.floor(max));
 };
 
-const quantity = 3;
+const quantity = 50;
 const reviews = [];
 
 const seedReviews = async () => {
   try {
+    const reviewCollection = await Review.find();
+    if (reviewCollection.length > 1) {
+      return;
+    }
+
     for (let r = 0; r < quantity; r += 1) {
       reviews.push(
         new Review({
-          username: faker.internet.userName,
-          date: faker.date.past,
-          title: faker.random.word,
-          review: faker.lorem.paragraph,
+          username: faker.internet.userName(),
+          date: faker.date.past(),
+          title: faker.random.word(),
+          review: faker.lorem.paragraph(),
           rating: 5,
-          buy_again: faker.random.boolean,
-          would_recommend_to_friend: faker.random.boolean,
+          buy_again: faker.random.boolean(),
+          would_recommend_to_friend: faker.random.boolean(),
           play_experience: 5,
           difficulty_level: 4,
           value_for_money_: randNum(5),
@@ -40,9 +44,9 @@ const seedReviews = async () => {
 
 seedReviews();
 
-const insertSampleBlogs = function () {
+const insertSampleReviews = function () {
   Review.create(reviews)
     .then(() => db.disconnect());
 };
 
-insertSampleBlogs();
+insertSampleReviews();
