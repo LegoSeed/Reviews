@@ -5,7 +5,6 @@ mongoose.Promise = global.Promise;
 
 const reviewSchema = new mongoose.Schema({
   username: String,
-  date: Number,
   title: String,
   review: String,
   rating: Number,

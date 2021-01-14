@@ -9,18 +9,12 @@ const randNum = function (max) {
 const quantity = 50;
 const reviews = [];
 
-const seedReviews = async () => {
+const seedReviews = () => {
   try {
-    const reviewCollection = await Review.find();
-    if (reviewCollection.length > 1) {
-      return;
-    }
-
     for (let r = 0; r < quantity; r += 1) {
       reviews.push(
         new Review({
           username: faker.internet.userName(),
-          date: faker.date.past(),
           title: faker.random.word(),
           review: faker.lorem.paragraph(),
           rating: 5,
@@ -34,8 +28,6 @@ const seedReviews = async () => {
         }),
       );
     }
-    // eslint-disable-next-line no-console
-    console.log(reviews);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log(err);
@@ -44,7 +36,7 @@ const seedReviews = async () => {
 
 seedReviews();
 
-const insertSampleReviews = function () {
+const insertSampleReviews = async function () {
   Review.create(reviews)
     .then(() => db.disconnect());
 };

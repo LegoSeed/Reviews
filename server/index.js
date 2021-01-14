@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Review = require('../database/reviews.js');
 // const Overview = require('../database/overview')
@@ -7,10 +8,18 @@ const Review = require('../database/reviews.js');
 const PORT = 3000;
 const app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.get('/reviews', (req, res) => {
-  res.send('Hello from the server!');
+app.get('/reviews', async (req, res) => {
+  try {
+    let results = await Review.find();
+    res.status(200).send(results);
+  } catch (err) {
+    res.status(500).send(err);
+  }
 });
 
 app.post('/reviews', (req, res) => {
