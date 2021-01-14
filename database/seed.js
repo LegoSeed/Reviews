@@ -1,32 +1,17 @@
-// const db  = require('./index.js');
-// const Blog = require('./Blog.js');
-
-// const samplePosts = [
-// //data here
-// ];
-
-// const insertSampleBlogs = function() {
-//   Blog.create(samplePosts)
-//     .then(() => db.disconnect());
-// };
-
-// insertSampleBlogs();
-
-// Building database with faker.
-
-// eslint-disable-next-line import/no-extraneous-dependencies
 import faker from 'faker';
 import Review from './reviews';
+
+const db = require('./index.js');
 
 const randNum = function (max) {
   return Math.floor(Math.random() * Math.floor(max));
 };
 
+const quantity = 3;
+const reviews = [];
+
 const seedReviews = async () => {
   try {
-    const quantity = 3;
-    const reviews = [];
-
     for (let r = 0; r < quantity; r += 1) {
       reviews.push(
         new Review({
@@ -53,4 +38,11 @@ const seedReviews = async () => {
   }
 };
 
-export default seedReviews;
+seedReviews();
+
+const insertSampleBlogs = function () {
+  Review.create(reviews)
+    .then(() => db.disconnect());
+};
+
+insertSampleBlogs();
