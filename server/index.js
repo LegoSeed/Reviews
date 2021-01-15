@@ -25,10 +25,12 @@ app.get('/reviews', async (req, res) => {
 app.post('/reviews', (req, res) => {
   res.send(req.body);
   // try {
-  // const result = ReviewModel.create(req.body)
+  // const result = Review.create(req.body)
   // } catch(err) {
   //   res.status(500).send(err)
   // }
+
+  // call helper functions that update the review summary module
 });
 
 app.listen(PORT, () => {

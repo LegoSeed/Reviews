@@ -1,5 +1,8 @@
+/* eslint-disable prefer-const */
+/* eslint-disable no-unused-vars */
 const mongoose = require('mongoose');
-const db = require('./index.js');
+let db = require('./index.js');
+
 mongoose.Promise = global.Promise;
 
 const overviewSchema = new mongoose.Schema({

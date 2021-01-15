@@ -5,15 +5,15 @@ class App extends React.Component {
     super(props);
     this.state = {
       allReviews: ''
-    }
+    };
   }
 
   render() {
-    return(
+    return (
       <div>
         hello from App!!!!
       </div>
-    )
+    );
   }
 }
 

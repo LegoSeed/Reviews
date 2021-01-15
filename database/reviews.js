@@ -1,9 +1,12 @@
+/* eslint-disable no-unused-vars */
 const mongoose = require('mongoose');
 const db = require('./index.js');
 
 mongoose.Promise = global.Promise;
 
 const reviewSchema = new mongoose.Schema({
+  product_id: Number,
+  product_name: String,
   username: String,
   title: String,
   review: String,
@@ -24,3 +27,7 @@ const reviewSchema = new mongoose.Schema({
 const Review = mongoose.model('Review', reviewSchema);
 
 module.exports = Review;
+
+// config.yml for circle CI
+// orb for node, orb for slack
+// job is like a function, jobs have steps
