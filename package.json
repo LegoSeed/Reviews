@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/index.js",
+    "seed": "node ./database/seed.js",
     "build": "webpack",
     "watch": "webpack -w",
     "test": "jest"
@@ -25,7 +26,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-test-renderer": "^17.0.1",
-    "save": "^2.4.0"
+    "save": "^2.4.0",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

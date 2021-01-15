@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
-const db = mongoose.connect('mongodb://localhost:27017/FECReviews', {
+mongoose.connect('mongodb://localhost:27017/FECReviews', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+const db = mongoose.connection;
 
 module.exports = db;

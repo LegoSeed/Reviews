@@ -9,7 +9,7 @@ const randNum = function (max) {
   return Math.floor(Math.random() * Math.floor(max));
 };
 
-// I need to add a product id line to the schema to identify which product the reviews are for!!!
+// Will need to update product name/id with actual name and id from group project.
 
 const quantity = 3;
 const reviews = [];
@@ -46,7 +46,8 @@ seedReviews();
 const insertSampleReviews = async function () {
   await Review.create(reviews)
     .then(console.log('database seeded'))
-    .catch(console.log('error seeding database'));
+    .then(() => db.close())
+    .catch((result) => console.log(result));
 };
 
 insertSampleReviews();

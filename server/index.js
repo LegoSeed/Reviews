@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -15,7 +16,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/reviews', async (req, res) => {
   try {
-    let results = await Review.find();
+    const results = await Review.find();
     res.status(200).send(results);
   } catch (err) {
     res.status(500).send(err);
@@ -24,11 +25,12 @@ app.get('/reviews', async (req, res) => {
 
 app.post('/reviews', (req, res) => {
   res.send(req.body);
-  // try {
-  // const result = Review.create(req.body)
-  // } catch(err) {
-  //   res.status(500).send(err)
-  // }
+  try {
+    const results = Review.create(req.body);
+    res.status(200).send(results);
+  } catch (err) {
+    res.status(500).send(err);
+  }
 
   // call helper functions that update the review summary module
 });
