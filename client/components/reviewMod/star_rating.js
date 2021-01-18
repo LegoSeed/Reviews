@@ -1,9 +1,14 @@
 import React from 'react';
+import StarRatings from 'react-star-ratings';
 
-const StarRating = (rating, i) => (
-  <div key={i}>
-    {console.log(rating)}
+const Rating = (rating) => (
+  <div className="reviewStar">
+    <StarRatings
+      rating={rating.rating}
+      starRatedColor="yellow"
+      name="rating"
+    />
   </div>
 );
 
-export default StarRating;
+export default Rating;

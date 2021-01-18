@@ -1,16 +1,17 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
-import StarRating from './star_rating';
+import Rating from './star_rating';
 
 const Review = (allReviews) => (
   <div>
     {allReviews.reviews.data.map((review) => (
-      <div>
-        <div key={review._id}>
+      <div key={review._id}>
+        <div>
           { review.username }
         </div>
         <div>
-          <StarRating rating={review.rating} />
+          <Rating rating={review.rating} />
         </div>
       </div>
     ))}
