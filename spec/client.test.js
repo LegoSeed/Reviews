@@ -1,4 +1,7 @@
 /* eslint-disable no-undef */
+import React from 'react';
+import { shallow, mount, render } from 'enzyme';
+
 function sum(a, b) {
   return a + b;
 }
