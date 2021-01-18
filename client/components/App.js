@@ -2,7 +2,7 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
-import Review from './reviewMod/reviews';
+import Review from './reviewMod/review';
 import Overview from './overviewMod/overview';
 
 class App extends React.Component {
@@ -33,7 +33,10 @@ class App extends React.Component {
           <Overview reviews={allReviews} />
         </div>
         <div>
-          <Review reviews={allReviews} />
+          {/* <Review reviews={allReviews} /> */}
+
+          { allReviews === ''
+            ? '' : <Review reviews={allReviews} /> }
         </div>
         <div> Filter Module </div>
         <div>Reviews Module</div>
