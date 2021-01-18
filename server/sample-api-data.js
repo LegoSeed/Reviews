@@ -1,4 +1,5 @@
 /* eslint-disable cSpell:disable */
+
 app.get('/reviews', async (req, res) => {
   try {
     const results = await Review.find();

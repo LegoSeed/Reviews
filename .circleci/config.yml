@@ -1,0 +1,21 @@
+version: 2.1
+orbs:
+  node: circleci/node@3.0.0
+Jobs:
+  test:
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          name: 'seed db'
+          command: 'npm run seed'
+      - run:
+          name: 'run build with npm'
+          command: 'npm run build'
+      - run:
+          name: 'run tests with npm'
+          command: 'npm run test'
+workflows:
+  node-tests:
+    jobs:
+      - node/test
