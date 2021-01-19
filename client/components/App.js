@@ -32,14 +32,11 @@ class App extends React.Component {
         <div>
           <Overview reviews={allReviews} />
         </div>
+        <div> Filter Module </div>
         <div>
-          {/* <Review reviews={allReviews} /> */}
-
           { allReviews === ''
             ? '' : <Review reviews={allReviews} /> }
         </div>
-        <div> Filter Module </div>
-        <div>Reviews Module</div>
       </div>
     );
   }
