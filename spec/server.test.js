@@ -6,7 +6,7 @@ const request = require('supertest');
 const app = require('../server/index');
 
 describe('Test the root path', () => {
-  it('It should respond to the GET method', async (done) => {
+  test('It should respond to the GET method', async (done) => {
     jest.useFakeTimers();
     request(app)
       .get('/reviews')
@@ -14,7 +14,7 @@ describe('Test the root path', () => {
     done();
   });
 
-  it('Verify format of product objects returned', async (done) => {
+  test('Verify format of product objects returned', async (done) => {
     jest.useFakeTimers();
     const resp = await request(app).get('/reviews');
     expect(resp.body[0]._id).toBeTruthy();
