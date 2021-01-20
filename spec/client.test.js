@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import Rating from '../client/components/reviewMod/star_rating';
 import StarRatings from '../client/components/reviewMod/star_rating';
-import Experience from '../client/components/reviewMod/experience';
+// import Experience from '../client/components/reviewMod/experience';
 import Review from '../client/components/reviewMod/review';
 import 'regenerator-runtime/runtime';
 
