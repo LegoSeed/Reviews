@@ -3,7 +3,9 @@
   "jest": {
     "setupFilesAfterEnv": [
       "./spec/setup.js"
-    ]
+    ],
+    "testEnvironment": "node",
+    "verbose": true
   },
   "version": "1.0.0",
   "description": "",
