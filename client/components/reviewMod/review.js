@@ -14,6 +14,7 @@ const Review = (allReviews) => (
         <div>
           {moment(review.createdAt).startOf('hour').fromNow()}
         </div>
+
         <div>
           <Rating rating={review.rating} />
         </div>

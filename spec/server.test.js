@@ -1,14 +1,16 @@
-// plan to write tests for :
-//  posting data
-//  retrieving data
-//  persisting data?
-//  schema structure
-
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-undef */
-function sum(a, b) {
-  return a + b;
-}
+import 'regenerator-runtime/runtime';
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+const request = require('supertest');
+const app = require('../server/index');
+
+describe('Test the root path', () => {
+  test('It should respond to the GET method', async (done) => {
+    jest.useFakeTimers();
+    request(app)
+      .get('/reviews')
+      .expect(200);
+    done();
+  });
 });

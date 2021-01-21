@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const Review = require('../database/reviews.js');
 // const Overview = require('../database/overview')
 
-const PORT = 3000;
 const app = express();
 
 app.use(bodyParser.json());
@@ -35,7 +34,4 @@ app.post('/reviews', (req, res) => {
   // call helper functions that update the review summary module
 });
 
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Server listening at localhost:${3000}!`);
-});
+module.exports = app;

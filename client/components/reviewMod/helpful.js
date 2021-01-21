@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Helpful = (review) => (
+const Helpful = () => (
   <div>
     <div> Was this helpful? (TBD on mod) </div>
     <div> </div>
