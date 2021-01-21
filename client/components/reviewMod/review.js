@@ -2,40 +2,46 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import moment from 'moment';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Rating from './star_rating';
 import Helpful from './helpful';
 import Experience from './experience';
+import Recommend from './recommend';
 
 const Review = (allReviews) => (
   <div>
     {allReviews.reviews.data.map((review) => (
-      <div className="reviewBlock" key={review._id}>
+      <Container className="reviewBlock" key={review._id}>
 
-        <div>
+        <Row>
           {moment(review.createdAt).startOf('hour').fromNow()}
-        </div>
+        </Row>
 
-        <div>
+        <Row>
           <Rating rating={review.rating} />
-        </div>
+        </Row>
 
-        <div className="username">
+        <Row className="username">
           { review.username }
-        </div>
+        </Row>
 
-        <div>Would/would not recommend</div>
+        <Row>
+          <Recommend review={review} />
+        </Row>
 
-        <div>
-          <span className="reviewText">{ review.review }</span>
-          <span className="reviewExperience">
+        <Row>
+          <Col sm={8}>{ review.review }</Col>
+          <Col sm={4}>
             <Experience review={review} />
-          </span>
-        </div>
+          </Col>
+        </Row>
 
-        <div>
-          <Helpful />
-        </div>
-      </div>
+        <Row>
+          <Helpful review={review} />
+        </Row>
+      </Container>
     ))}
   </div>
 );
