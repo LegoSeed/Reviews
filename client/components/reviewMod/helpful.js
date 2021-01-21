@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Helpful = () => (
+const Helpful = (review) => (
   <div>
-    <div> Was this helpful? (TBD on mod) </div>
+    <div>
+      {' '}
+      Was this review helpful?
+      YES! {review.review.helpful_count}
+      , No {review.review.unhelpful_count}
+    </div>
     <div> </div>
   </div>
 );
