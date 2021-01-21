@@ -6,6 +6,7 @@ let db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 const overviewSchema = new mongoose.Schema({
+  qty: Number,
   overall_average: Number,
   star1: Number,
   star2: Number,
