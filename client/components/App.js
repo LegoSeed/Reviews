@@ -12,12 +12,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      addReview: true,
+      addReview: false,
       allReviews: '',
       overview: null,
     };
     this.getData = this.getData.bind(this);
     this.addReview = this.addReview.bind(this);
+    this.submitReview = this.submitReview.bind(this);
   }
 
   componentDidMount() {
@@ -29,6 +30,17 @@ class App extends React.Component {
     axios.get('http://localhost:3000/reviews')
       .then((result) => this.setState({ allReviews: result }))
       .catch((err) => console.log(err, 'error'));
+  }
+
+  submitReview(input) {
+    console.log(input);
+    // axios.post('http://localhost:3000/review', { input })
+    //   .then(() => {
+    //     this.getData();
+    //   })
+    //   .catch((e) => {
+    //     console.log(e, 'error calling addCow');
+    //   });
   }
 
   addReview() {
@@ -53,7 +65,7 @@ class App extends React.Component {
           {' '}
           Submit A Review
         </Button>
-        { addReview ? <ReviewForm /> : ''}
+        { addReview ? <ReviewForm fn={this.submitReview} /> : ''}
         <Row>
           { allReviews === '' ? '' : <Review reviews={allReviews} /> }
         </Row>
