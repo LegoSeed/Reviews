@@ -4,7 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Review = require('../database/reviews.js');
-// const Overview = require('../database/overview')
+const Overview = require('../database/overview');
 
 const app = express();
 
@@ -22,10 +22,18 @@ app.get('/reviews', async (req, res) => {
   }
 });
 
-app.post('/reviews', (req, res) => {
-  res.send(req.body);
+app.get('/overview', async (req, res) => {
   try {
-    const results = Review.create(req.body);
+    const results = await Overview.find();
+    res.status(200).send(results);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.post('/review', async (req, res) => {
+  try {
+    const results = await Review.create(req.body.input);
     res.status(200).send(results);
   } catch (err) {
     res.status(500).send(err);
