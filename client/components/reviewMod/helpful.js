@@ -8,7 +8,6 @@ const Helpful = (review) => (
       YES! {review.review.helpful_count}
       , No {review.review.unhelpful_count}
     </div>
-    <div> </div>
   </div>
 );
 

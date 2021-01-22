@@ -3,17 +3,38 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
-import { Container, Row, Button } from 'react-bootstrap';
+import { Container, Row, Button, Accordion, Card } from 'react-bootstrap';
 import Review from './reviewMod/review';
 import Overview from './overviewMod/overview';
 import ReviewForm from './reviewMod/form';
+
+const reviews = {data: [
+  {
+    _id: '6009d5a6509bc433d27db15c',
+    product_id: 3,
+    product_name: 'Prego Ducati',
+    username: 'Mona_Osinski10',
+    title: 'Global',
+    review: 'Dolorum eum voluptatem perferendis laudantium ad est ea nobis dolorem. Iste temporibus accusantium sed ab ut. Praesentium nulla accusantium vero autem nostrum. Neque dolor facere atque et.',
+    rating: 5,
+    buy_again: true,
+    would_recommend_to_friend: false,
+    play_experience: 5,
+    difficulty_level: 4,
+    value_for_money_: 1,
+    helpful_count: 62,
+    unhelpful_count: 50,
+    createdAt: '2021-01-21T19:27:34.044Z',
+    updatedAt: '2021-01-21T19:27:34.044Z',
+    __v: 0,
+  }] };
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       addReview: false,
-      allReviews: '',
+      allReviews: reviews,
       overview: null,
     };
     this.getData = this.getData.bind(this);
@@ -61,18 +82,32 @@ class App extends React.Component {
     return (
       <Container>
         <Row>
-          { overview ? <Overview reviews={allReviews} /> : ''}
+          { overview
+            ? <Overview reviews={allReviews} /> : ''}
         </Row>
-        <Button
+        {/* <Button
           onClick={() => this.addReview()}
         >
           {' '}
           Submit A Review
-        </Button>
-        { addReview ? <ReviewForm fn={this.submitReview} /> : ''}
-        <Row>
+        </Button> */}
+        { addReview
+          ? <ReviewForm fn={this.submitReview} /> : ''}
+        <Accordion defaultActiveKey="">
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                Customer Reviews
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Review reviews={allReviews} />
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+        {/* <Row>
           { allReviews === '' ? '' : <Review reviews={allReviews} /> }
-        </Row>
+        </Row> */}
       </Container>
     );
   }

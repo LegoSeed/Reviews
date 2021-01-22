@@ -9,9 +9,11 @@ import Rating from './star_rating';
 import Helpful from './helpful';
 import Experience from './experience';
 import Recommend from './recommend';
+// import ReviewBorder from './styles/reviewBorder';
 
 const Review = (allReviews) => (
   <div>
+    {console.log(allReviews)}
     {allReviews.reviews.data.map((review) => (
       <Container className="reviewBlock" key={review._id}>
 
