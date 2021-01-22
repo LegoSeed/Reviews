@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Review = require('../database/reviews.js');
 const Overview = require('../database/overview');
-const OverviewMethods = require('./overview');
 
 const app = express();
 
@@ -32,11 +31,9 @@ app.get('/overview', async (req, res) => {
   }
 });
 
-app.post('/reviews', (req, res) => {
-  res.send(req.body);
-  // will need to send product id and crate new review with this
+app.post('/review', async (req, res) => {
   try {
-    const results = Review.create(req.body);
+    const results = await Review.create(req.body.input);
     res.status(200).send(results);
   } catch (err) {
     res.status(500).send(err);

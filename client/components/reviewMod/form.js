@@ -10,14 +10,15 @@ class ReviewForm extends React.Component {
     super(props);
     this.state = {
       username: '',
+      product_id: '',
       title: '',
       review: '',
-      rating: 1,
+      rating: 5,
       buy_again: true,
       would_recommend_to_friend: true,
-      play_experience: 1,
-      difficulty_level: 1,
-      value_for_money_: 1,
+      play_experience: 5,
+      difficulty_level: 5,
+      value_for_money_: 5,
     };
     this.name = this.name.bind(this);
     this.title = this.title.bind(this);
@@ -105,6 +106,19 @@ class ReviewForm extends React.Component {
             <Form.Control type="text" placeholder="Review Title" onChange={this.title} />
             <Form.Text className="text-muted" />
           </Form.Group>
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>1 -5, how did we do?</Form.Label>
+            <Form.Control
+              as="select"
+              onChange={this.rating}
+            >
+              <option>5</option>
+              <option>4</option>
+              <option>3</option>
+              <option>2</option>
+              <option>1</option>
+            </Form.Control>
+          </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>What did you think of your product!</Form.Label>
             <Form.Control type="text" placeholder="Write your review here" onChange={this.review} />
@@ -138,11 +152,11 @@ class ReviewForm extends React.Component {
               as="select"
               onChange={this.play}
             >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
               <option>5</option>
+              <option>4</option>
+              <option>3</option>
+              <option>2</option>
+              <option>1</option>
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlSelect1">
@@ -151,11 +165,11 @@ class ReviewForm extends React.Component {
               as="select"
               onChange={this.difficulty}
             >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
               <option>5</option>
+              <option>4</option>
+              <option>3</option>
+              <option>2</option>
+              <option>1</option>
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlSelect1">
@@ -164,11 +178,11 @@ class ReviewForm extends React.Component {
               as="select"
               onChange={this.value}
             >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
               <option>5</option>
+              <option>4</option>
+              <option>3</option>
+              <option>2</option>
+              <option>1</option>
             </Form.Control>
           </Form.Group>
           <Button onClick={this.submit}>Submit!</Button>

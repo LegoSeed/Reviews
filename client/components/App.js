@@ -33,14 +33,18 @@ class App extends React.Component {
   }
 
   submitReview(input) {
-    console.log(input);
-    // axios.post('http://localhost:3000/review', { input })
-    //   .then(() => {
-    //     this.getData();
-    //   })
-    //   .catch((e) => {
-    //     console.log(e, 'error calling addCow');
-    //   });
+    console.log(input, 'input from form');
+    // WILL NEED TO ADD CURRENT PRODUCT ID NUMBER TO REQUEST!!
+    // CURRENTLY HARDCODED INTO FORM.JS
+
+    axios.post('http://localhost:3000/review', { input })
+      .then((response) => {
+        this.getData();
+      })
+      .then(() => this.setState({ addReview: false }))
+      .catch((e) => {
+        console.log(e, 'error calling submitReview');
+      });
   }
 
   addReview() {
