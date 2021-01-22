@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/no-unused-state */
 import React from 'react';
 import {
-  Container, Row, Col, Form, Button,
+  Container, Form, Button,
 } from 'react-bootstrap';
 
 class ReviewForm extends React.Component {
@@ -59,7 +62,7 @@ class ReviewForm extends React.Component {
   recommend(e) {
     if (e === 'Yes!') {
       this.setState({ would_recommend_to_friend: true });
-    }else {
+    } else {
       this.setState({ would_recommend_to_friend: false });
     }
   }
@@ -125,23 +128,23 @@ class ReviewForm extends React.Component {
             <Form.Text className="text-muted" />
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
-          <Form.Label>Would you buy this item again?</Form.Label>
+            <Form.Label>Would you buy this item again?</Form.Label>
             <Form.Control
               as="select"
               onChange={this.buy}
             >
-              <option></option>
+              <option />
               <option>Yes!</option>
               <option>Probably not</option>
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
-          <Form.Label>Would you recommend this item to a friend?</Form.Label>
+            <Form.Label>Would you recommend this item to a friend?</Form.Label>
             <Form.Control
               as="select"
               onChange={this.recommend}
             >
-              <option></option>
+              <option />
               <option>Yes!</option>
               <option>Probably not</option>
             </Form.Control>

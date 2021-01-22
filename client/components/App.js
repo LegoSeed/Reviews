@@ -3,7 +3,7 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Button } from 'react-bootstrap';
 import Review from './reviewMod/review';
 import Overview from './overviewMod/overview';
 import ReviewForm from './reviewMod/form';
@@ -38,7 +38,7 @@ class App extends React.Component {
     // CURRENTLY HARDCODED INTO FORM.JS
 
     axios.post('http://localhost:3000/review', { input })
-      .then((response) => {
+      .then(() => {
         this.getData();
       })
       .then(() => this.setState({ addReview: false }))
