@@ -2,9 +2,7 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import moment from 'moment';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Container, Row, Col } from 'react-bootstrap';
 import Rating from './star_rating';
 import Helpful from './helpful';
 import Experience from './experience';
@@ -13,7 +11,6 @@ import Recommend from './recommend';
 
 const Review = (allReviews) => (
   <div>
-    {console.log(allReviews)}
     {allReviews.reviews.data.map((review) => (
       <Container className="reviewBlock" key={review._id}>
 

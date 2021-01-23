@@ -8,7 +8,7 @@ import Review from './reviewMod/review';
 import Overview from './overviewMod/overview';
 import ReviewForm from './reviewMod/form';
 
-const reviews = {data: [
+const reviews = { data: [
   {
     _id: '6009d5a6509bc433d27db15c',
     product_id: 3,
@@ -33,12 +33,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      addReview: false,
+      // addReview: false,
       allReviews: reviews,
       overview: null,
+      submitted: null,
     };
     this.getData = this.getData.bind(this);
-    this.addReview = this.addReview.bind(this);
     this.submitReview = this.submitReview.bind(this);
   }
 
@@ -62,37 +62,43 @@ class App extends React.Component {
       .then(() => {
         this.getData();
       })
-      .then(() => this.setState({ addReview: false }))
+      .then(() => this.setState({ submitted: true }))
       .catch((e) => {
         console.log(e, 'error calling submitReview');
       });
   }
 
-  addReview() {
-    console.log('clicked!');
-    this.setState({ addReview: true });
-  }
-
   // make getData call get request for both reviews and overview.
+
+  revealFormButton() {
+    return (
+      <Accordion defaultActiveKey="">
+        <Card>
+          <Card.Header>
+            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+              Write A Review?
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="0">
+            <ReviewForm fn={this.submitReview} />
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
+    );
+  }
 
   render() {
     const { allReviews } = this.state;
     const { overview } = this.state;
-    const { addReview } = this.state;
+    const { submitted } = this.state;
     return (
       <Container>
         <Row>
           { overview
             ? <Overview reviews={allReviews} /> : ''}
         </Row>
-        {/* <Button
-          onClick={() => this.addReview()}
-        >
-          {' '}
-          Submit A Review
-        </Button> */}
-        { addReview
-          ? <ReviewForm fn={this.submitReview} /> : ''}
+        {submitted
+          ? '' : this.revealFormButton()}
         <Accordion defaultActiveKey="">
           <Card>
             <Card.Header>
@@ -105,9 +111,6 @@ class App extends React.Component {
             </Accordion.Collapse>
           </Card>
         </Accordion>
-        {/* <Row>
-          { allReviews === '' ? '' : <Review reviews={allReviews} /> }
-        </Row> */}
       </Container>
     );
   }
