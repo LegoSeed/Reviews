@@ -1,11 +1,12 @@
- /**
+/**
  * @test-environment jsdom
  */
-import 'jsdom-global/register';
 /* eslint-disable import/no-duplicates */
 /* eslint-disable no-undef */
-/* eslint-disable cSpell:disable */
+/* eslint-disable  */
+/* cSpell:disable */
 
+import 'jsdom-global/register';
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Experience from '../client/components/reviewMod/experience';

@@ -1,5 +1,6 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-console */
+/* cSpell: disable */
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
@@ -46,7 +47,6 @@ class App extends React.Component {
     this.getData();
   }
 
-  //  resets all reviews in state
   getData() {
     axios.get('http://localhost:3000/reviews')
       .then((result) => this.setState({ allReviews: result }))
@@ -67,8 +67,6 @@ class App extends React.Component {
         console.log(e, 'error calling submitReview');
       });
   }
-
-  // make getData call get request for both reviews and overview.
 
   revealFormButton() {
     return (
@@ -107,6 +105,7 @@ class App extends React.Component {
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
+              {/* <Row> */}
               <Review reviews={allReviews} />
             </Accordion.Collapse>
           </Card>
