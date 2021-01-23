@@ -2,13 +2,12 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import moment from 'moment';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Container, Row, Col } from 'react-bootstrap';
 import Rating from './star_rating';
 import Helpful from './helpful';
 import Experience from './experience';
 import Recommend from './recommend';
+// import ReviewBorder from './styles/reviewBorder';
 
 const Review = (allReviews) => (
   <div>
