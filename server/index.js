@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
 const express = require('express');
 const path = require('path');
@@ -16,7 +17,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/reviews', async (req, res) => {
   try {
-    const results = await Review.find();
+    let results = await Review.find().sort({ _id: -1 });
     res.status(200).send(results);
   } catch (err) {
     res.status(500).send(err);

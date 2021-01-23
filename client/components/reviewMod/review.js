@@ -21,9 +21,13 @@ const Review = (allReviews) => (
             margin: '20px',
           }}
         >
-
+Yeah, I'm sorry
+I can't afford a Ferrari
+But that don't mean I can't get you there
+I guess he's an Xbox and I'm more Atari
+But the way you play your game ain't fair
           <Row>
-            { moment(review.createdAt).startOf('hour').fromNow() }
+            { moment(review.createdAt).startOf('minute').fromNow() }
           </Row>
 
           <Row>
