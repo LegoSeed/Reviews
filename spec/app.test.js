@@ -1,10 +1,11 @@
- /**
+/**
  * @test-environment jsdom
  */
 import 'jsdom-global/register';
 /* eslint-disable import/no-duplicates */
 /* eslint-disable no-undef */
-/* eslint-disable cSpell:disable */
+/* eslint-disable  */
+/* cSpell:disable */
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
