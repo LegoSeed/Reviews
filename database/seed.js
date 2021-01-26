@@ -33,9 +33,6 @@ const seedReviews = () => {
           helpful_count: randNum(90),
           unhelpful_count: randNum(90),
         }),
-      );
-    }
-  } catch (err) {
     // eslint-disable-next-line no-console
     console.log(err);
   }

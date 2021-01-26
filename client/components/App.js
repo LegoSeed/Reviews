@@ -91,6 +91,10 @@ class App extends React.Component {
     const { submitted } = this.state;
     return (
       <Container>
+        <div style={{
+          backgroundColor: '#F7F7F7',
+        }}
+        />
         <Row>
           { overview
             ? <Overview reviews={allReviews} /> : ''}
