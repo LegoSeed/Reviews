@@ -12,6 +12,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
@@ -40,8 +41,6 @@ app.post('/review', async (req, res) => {
   } catch (err) {
     res.status(500).send(err);
   }
-
-  // call helper functions that update the review summary module
 });
 
 module.exports = app;
