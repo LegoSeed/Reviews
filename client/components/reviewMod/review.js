@@ -13,7 +13,7 @@ import Recommend from './recommend';
 
 const Review = (allReviews) => (
   <div>
-    {allReviews.reviews.data.map((review) => (
+    {allReviews.reviews.map((review) => (
       <Card className="reviewBlock" key={review._id}>
         <Container
           style={{

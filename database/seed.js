@@ -11,7 +11,7 @@ const randNum = function (max) {
 
 // Will need to update product name/id with actual name and id from group project.
 
-const quantity = 5;
+const quantity = 10;
 const reviews = [];
 
 const seedReviews = () => {
@@ -25,8 +25,8 @@ const seedReviews = () => {
           title: faker.random.word(),
           review: faker.lorem.paragraph(),
           rating: 5,
-          buy_again: faker.random.boolean(),
-          would_recommend_to_friend: faker.random.boolean(),
+          buy_again: true,
+          would_recommend_to_friend: true,
           play_experience: 5,
           difficulty_level: 4,
           value_for_money_: randNum(5),
