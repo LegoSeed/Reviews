@@ -28,7 +28,7 @@ class App extends React.Component {
   }
 
   getData() {
-    axios.get('http://localhost:3000/reviews')
+    axios.get('http://18.224.139.39:3000/reviews')
       .then((result) => this.setState({ allReviews: result }))
       .catch((err) => console.log(err, 'error'));
   }
@@ -38,7 +38,7 @@ class App extends React.Component {
     // WILL NEED TO ADD CURRENT PRODUCT ID NUMBER TO REQUEST!!
     // CURRENTLY HARDCODED INTO FORM.JS 18.224.139.39
 
-    axios.post('http://localhost:3000/review', { input })
+    axios.post('http://18.224.139.39:3000/review', { input })
       .then(() => {
         this.getData();
       })
