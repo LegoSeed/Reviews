@@ -7,16 +7,13 @@ import React from 'react';
 import axios from 'axios';
 import { Container, Button, Accordion, Card } from 'react-bootstrap';
 import Review from './reviewMod/review';
-// import Overview from './overviewMod/overview';
 import ReviewForm from './reviewMod/form';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // addReview: false,
-      allReviews: '',
-      // overview: null,
+      allReviews: null,
       submitted: null,
     };
     this.getData = this.getData.bind(this);
@@ -28,17 +25,14 @@ class App extends React.Component {
   }
 
   getData() {
-    axios.get('http://18.224.139.39:3000/reviews')
-      .then((result) => this.setState({ allReviews: result }))
+    axios.get('http://localhost:3000/reviews')
+      .then((result) => this.setState({allReviews: result.data}))
       .catch((err) => console.log(err, 'error'));
   }
 
   submitReview(input) {
-    console.log(input, 'input from form');
-    // WILL NEED TO ADD CURRENT PRODUCT ID NUMBER TO REQUEST!!
-    // CURRENTLY HARDCODED INTO FORM.JS 18.224.139.39
 
-    axios.post('http://18.224.139.39:3000/review', { input })
+    axios.post('http://localhost:3000/review', { input })
       .then(() => {
         this.getData();
       })
@@ -75,7 +69,7 @@ class App extends React.Component {
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
-            <Review reviews={allReviews} />
+            <Review reviews={this.state.allReviews} />
           </Accordion.Collapse>
         </Card>
       </Accordion>
@@ -83,8 +77,6 @@ class App extends React.Component {
   }
 
   render() {
-    const { allReviews } = this.state;
-    // const { overview } = this.state;
     const { submitted } = this.state;
     return (
       <Container>
@@ -92,14 +84,8 @@ class App extends React.Component {
           backgroundColor: '#F7F7F7',
         }}
         />
-        {/* <Row>
-          { overview
-            ? <Overview reviews={allReviews} /> : ''}
-        </Row> */}
-        {submitted
-          ? '' : this.revealFormButton()}
-        {allReviews === ''
-          ? '' : this.revealReviews }
+        {this.state.submitted && this.revealFormButton()}
+        {this.state.allReviews && this.revealReviews()}
       </Container>
     );
   }

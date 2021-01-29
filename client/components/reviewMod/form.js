@@ -61,8 +61,8 @@ class ReviewForm extends React.Component {
   }
 
   recommend(e) {
-    // need to check value passed in and what is passed to servers.
-    if (e === 'Yes!') {
+    if (e.target.value === 'Yes!') {
+      console.log(e.target.value, ' target value')
       this.setState({ would_recommend_to_friend: true });
     } else {
       this.setState({ would_recommend_to_friend: false });
@@ -98,6 +98,7 @@ class ReviewForm extends React.Component {
       helpful_count: 0,
       unhelpful_count: 0,
     };
+    console.log(record);
     this.props.fn(record);
   }
 
