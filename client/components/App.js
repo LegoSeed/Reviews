@@ -26,14 +26,13 @@ class App extends React.Component {
 
   //  18.191.88.165
   getData() {
-    axios.get('http://18.191.88.165:3000/reviews')
-      .then((result) => this.setState({allReviews: result.data}))
+    axios.get('http://localhost:3000/reviews')
+      .then((result) => this.setState({ allReviews: result.data }))
       .catch((err) => console.log(err, 'error'));
   }
 
   submitReview(input) {
-
-    axios.post('http://18.191.88.165:3000/review', { input })
+    axios.post('http://localhost:3000/review', { input })
       .then(() => {
         this.getData();
       })
@@ -61,6 +60,7 @@ class App extends React.Component {
   }
 
   revealReviews() {
+    const { allReviews } = this.state;
     return (
       <Accordion defaultActiveKey="">
         <Card>
@@ -70,7 +70,7 @@ class App extends React.Component {
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
-            <Review reviews={this.state.allReviews} />
+            <Review reviews={allReviews} />
           </Accordion.Collapse>
         </Card>
       </Accordion>
@@ -78,19 +78,21 @@ class App extends React.Component {
   }
 
   render() {
+    const { allReviews } = this.state;
     const { submitted } = this.state;
     return (
-      <Container>
-        <div style={{
+      <Container
+        style={{
           backgroundColor: '#F7F7F7',
         }}
-        />
-        {submitted
-        ? '' : this.revealFormButton()}
-        {this.state.allReviews && this.revealReviews()}
+      >
+        {submitted || this.revealFormButton()}
+        {allReviews && this.revealReviews()}
       </Container>
     );
   }
 }
+
+// footer color rgb(0, 109, 183)
 
 export default App;

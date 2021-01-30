@@ -15,7 +15,7 @@ const reviewSchema = new mongoose.Schema({
   would_recommend_to_friend: Boolean,
   play_experience: Number,
   difficulty_level: Number,
-  value_for_money_: Number,
+  value_for_money: Number,
   average_rating: Number,
   helpful_count: Number,
   unhelpful_count: Number,
