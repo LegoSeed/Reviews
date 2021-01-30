@@ -73,7 +73,7 @@ class ReviewForm extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container className="reviewForm">
         <Form>
           <Form.Row>
 
@@ -88,7 +88,7 @@ class ReviewForm extends React.Component {
               <Form.Text className="text-muted" />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formBasicEmail">
+            <Form.Group as={Col} size={'sm'} controlId="formBasicEmail">
               <Form.Label>Review Title</Form.Label>
               <Form.Control
                 type="text"
@@ -205,7 +205,10 @@ class ReviewForm extends React.Component {
             </Form.Group>
           </Form.Row>
 
-          <Button onClick={this.submit}>Submit!</Button>
+          <Button
+            onClick={this.submit}
+            className="btn"
+          >Submit!</Button>
 
         </Form>
       </Container>

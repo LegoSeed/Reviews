@@ -5,9 +5,11 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
-import { Container, Button, Accordion, Card } from 'react-bootstrap';
+import { Container, Button, Accordion, Card, Row } from 'react-bootstrap';
 import Review from './reviewMod/review';
 import ReviewForm from './reviewMod/form';
+import './style.css';
+import Footer from './footer/footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -47,7 +49,12 @@ class App extends React.Component {
       <Accordion defaultActiveKey="">
         <Card>
           <Card.Header>
-            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+            <Accordion.Toggle
+              className="accordionTitle"
+              as={Button}
+              variant="link"
+              eventKey="0"
+            >
               Write A Review?
             </Accordion.Toggle>
           </Card.Header>
@@ -65,7 +72,12 @@ class App extends React.Component {
       <Accordion defaultActiveKey="">
         <Card>
           <Card.Header>
-            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+            <Accordion.Toggle
+              as={Button}
+              variant="link"
+              eventKey="0"
+              className="accordionTitle"
+            >
               Customer Reviews
             </Accordion.Toggle>
           </Card.Header>
@@ -81,14 +93,18 @@ class App extends React.Component {
     const { allReviews } = this.state;
     const { submitted } = this.state;
     return (
-      <Container
+      <div
         style={{
           backgroundColor: '#F7F7F7',
         }}
       >
-        {submitted || this.revealFormButton()}
-        {allReviews && this.revealReviews()}
-      </Container>
+        <Container>
+          {submitted || this.revealFormButton()}
+          {allReviews && this.revealReviews()}
+        </Container>
+
+        <Footer />
+      </div>
     );
   }
 }
