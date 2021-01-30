@@ -24,15 +24,16 @@ class App extends React.Component {
     this.getData();
   }
 
+  //  18.191.88.165
   getData() {
-    axios.get('http://18.191.88.165:3000/reviews')
+    axios.get('http://localhost:3000/reviews')
       .then((result) => this.setState({allReviews: result.data}))
       .catch((err) => console.log(err, 'error'));
   }
 
   submitReview(input) {
 
-    axios.post('http://18.191.88.165:3000/review', { input })
+    axios.post('http://localhost:3000/review', { input })
       .then(() => {
         this.getData();
       })
@@ -84,7 +85,8 @@ class App extends React.Component {
           backgroundColor: '#F7F7F7',
         }}
         />
-        {this.state.submitted && this.revealFormButton()}
+        {submitted
+        ? '' : this.revealFormButton()}
         {this.state.allReviews && this.revealReviews()}
       </Container>
     );
