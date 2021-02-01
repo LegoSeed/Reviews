@@ -1,0 +1,81 @@
+/* .title {
+  margin-bottom: 15px;
+  font-family: Cera Pro, sans-serif;
+  font-size: 20px;
+
+} */
+
+.accordionTitle {
+  display: block;
+  font-weight: bold;
+  font-size: 17px;
+  color: rgb(44, 44, 44);;
+}
+
+.support {
+  background: rgb(0, 109, 183);
+  color: rgb(255, 255, 255);
+  padding: 2rem;
+}
+
+.contactBox {
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  padding: 1.25rem;
+}
+
+.reviewBlock {
+  font-family: Cera Pro, sans-serif;
+}
+
+.btn {
+  display: block;
+  font-weight: bold;
+}
+
+.reviewForm {
+  flex-direction: column;
+}
+
+.guarantee {
+  width: 10rem;
+  text-align: center;
+  font-size: 12px;
+  background: rgb(0, 109, 183);
+  border: none;
+}
+
+.contactUS {
+  font-size: 12px;
+}
+
+.social-container {
+  padding: 25px 50px;
+}
+
+
+a.social {
+  margin: 0 1rem;
+  transition: transform 250ms;
+  display: inline-block;
+}
+
+a.social:hover {
+  transform: translateY(-2px);
+}
+
+a.youtube {
+  color: #eb3223;
+}
+
+a.facebook {
+  color: #4968ad;
+}
+
+a.twitter {
+  color: #49a1eb;
+}
+
+a.instagram {
+  color: black;
+}

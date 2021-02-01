@@ -5,9 +5,11 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
-import { Container, Button, Accordion, Card } from 'react-bootstrap';
+import { Container, Button, Accordion, Card, Row } from 'react-bootstrap';
 import Review from './reviewMod/review';
 import ReviewForm from './reviewMod/form';
+import './style.css';
+import Footer from './footer/footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,12 +29,11 @@ class App extends React.Component {
   //  18.191.88.165
   getData() {
     axios.get('http://18.191.88.165:3000/reviews')
-      .then((result) => this.setState({allReviews: result.data}))
+      .then((result) => this.setState({ allReviews: result.data }))
       .catch((err) => console.log(err, 'error'));
   }
 
   submitReview(input) {
-
     axios.post('http://18.191.88.165:3000/review', { input })
       .then(() => {
         this.getData();
@@ -48,7 +49,12 @@ class App extends React.Component {
       <Accordion defaultActiveKey="">
         <Card>
           <Card.Header>
-            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+            <Accordion.Toggle
+              className="accordionTitle"
+              as={Button}
+              variant="link"
+              eventKey="0"
+            >
               Write A Review?
             </Accordion.Toggle>
           </Card.Header>
@@ -61,16 +67,22 @@ class App extends React.Component {
   }
 
   revealReviews() {
+    const { allReviews } = this.state;
     return (
       <Accordion defaultActiveKey="">
         <Card>
           <Card.Header>
-            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+            <Accordion.Toggle
+              as={Button}
+              variant="link"
+              eventKey="0"
+              className="accordionTitle"
+            >
               Customer Reviews
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
-            <Review reviews={this.state.allReviews} />
+            <Review reviews={allReviews} />
           </Accordion.Collapse>
         </Card>
       </Accordion>
@@ -78,19 +90,25 @@ class App extends React.Component {
   }
 
   render() {
+    const { allReviews } = this.state;
     const { submitted } = this.state;
     return (
-      <Container>
-        <div style={{
+      <div
+        style={{
           backgroundColor: '#F7F7F7',
         }}
-        />
-        {submitted
-        ? '' : this.revealFormButton()}
-        {this.state.allReviews && this.revealReviews()}
-      </Container>
+      >
+        <Container>
+          {submitted || this.revealFormButton()}
+          {allReviews && this.revealReviews()}
+        </Container>
+
+        <Footer />
+      </div>
     );
   }
 }
+
+// footer color rgb(0, 109, 183)
 
 export default App;

@@ -29,7 +29,7 @@ const seedReviews = () => {
           would_recommend_to_friend: true,
           play_experience: 5,
           difficulty_level: 4,
-          value_for_money_: randNum(5),
+          value_for_money: randNum(5),
           helpful_count: randNum(90),
           unhelpful_count: randNum(90),
         }),
