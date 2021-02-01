@@ -1,5 +1,5 @@
-Database requires mongodb with mongoose
-To seed the database: npm seed
-To install dependencies: npm install
-To start server: npm start
-To run react app: npm watch
+Database uses mongodb with mongoose
+Install dependencies with: npm install
+Build webpack with: npm run build
+Start the server with: npm run server
+Seed the database with: npm run seed
