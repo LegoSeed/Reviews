@@ -11,7 +11,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -w",
+    "start": "webpack -w",
     "server": "nodemon server/start.js",
     "seed": "node ./database/seed.js",
     "build": "webpack",

@@ -14,7 +14,7 @@ const Footer = () => (
             <Row>OR call us at 1-800-BUY-LEGO</Row>
           </Col>
           <Col>
-            <Row >OFFICIAL LEGO GUARANTEE</Row>
+            <Row>OFFICIAL LEGO GUARANTEE</Row>
             <Row>
               <GCard text="Free Shipping for Orders over $35" />
               <GCard text="Earn Points on every purchase and benefit from members only promotion" />
