@@ -11,7 +11,7 @@ const randNum = function (max) {
 
 // Will need to update product name/id with actual name and id from group project.
 
-const quantity = 10;
+const quantity = 1000;
 const reviews = [];
 
 const seedReviews = () => {
@@ -19,7 +19,7 @@ const seedReviews = () => {
     for (let r = 0; r < quantity; r += 1) {
       reviews.push(
         new Review({
-          product_id: 3,
+          product_id: randNum(5),
           product_name: 'Prego Ducati',
           username: faker.internet.userName(),
           title: faker.random.word(),
