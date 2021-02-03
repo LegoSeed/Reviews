@@ -1,5 +1,5 @@
 -- If DATABASE EXISTS
-DROP DATABASE [ IF EXISTS ] sdcproducts;
+DROP DATABASE IF EXISTS sdcproducts;
 -- CREATE DATABASE
 CREATE DATABASE sdcproducts;
 -- \l to see created databases
