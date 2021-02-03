@@ -11,10 +11,11 @@ const randNum = function (max) {
 
 // Will need to update product name/id with actual name and id from group project.
 
-const quantity = 1000;
+const quantity = 100;
 const reviews = [];
 
 const seedReviews = () => {
+  console.time('start');
   try {
     for (let r = 0; r < quantity; r += 1) {
       reviews.push(
@@ -38,6 +39,7 @@ const seedReviews = () => {
   } catch (err) {
     console.log(err);
   }
+  console.timeEnd('start');
 };
 
 seedReviews();

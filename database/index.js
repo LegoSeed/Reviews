@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://database/FECReviews', {
+mongoose.connect('mongodb://localhost/FECReviews', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
