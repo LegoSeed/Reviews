@@ -5,15 +5,18 @@ CREATE DATABASE sdcproducts;
 -- \l to see created databases
 -- \c to connect to created database
 -- CREATE TABLE
-CREATE TABLE IF NOT EXISTS products (
-  product_id INT NOT NULL,
-  product_name VARCHAR(50) NOT NULL,
-  PRIMARY KEY(product_id)
-);
+-- CREATE TABLE IF NOT EXISTS products (
+--   product_id INT NOT NULL,
+--   product_name VARCHAR(50) NOT NULL,
+--   PRIMARY KEY(product_id)
+-- );
+Drop TABLE IF EXISTS reviews;
 
 CREATE TABLE IF NOT EXISTS reviews (
   reviews_id BIGSERIAL PRIMARY KEY,
-  username VARCHAR(20) NOT NULL,
+  product_id INT NOT NULL,
+  product_name VARCHAR(50) NOT NULL,
+  username VARCHAR(50) NOT NULL,
   title VARCHAR(50) NOT NULL,
   review VARCHAR(600) NOT NULL,
   rating int NOT NULL,
@@ -23,16 +26,14 @@ CREATE TABLE IF NOT EXISTS reviews (
   difficulty_level int NOT NULL,
   value_for_money int NOT NULL,
   helpful_count int NOT NULL,
-  unhelpful_count int NOT NULL,
-  product_id int NOT NULL,
-  CONSTRAINT fk_product
-    FOREIGN KEY(product_id)
-      REFERENCES products(product_id)
+  unhelpful_count int NOT NULL
 );
 
 -- ADD RECORDS TO TABLE
-INSERT INTO products (product_id, product_name) VALUES (
-  1, 'Lego truck');
+INSERT INTO reviews (product_id, product_name, username, title, review, rating, buy_again, would_recommend_to_friend, play_experience, difficulty_level, value_for_money, helpful_count, unhelpful_count) VALUES (
+1, 'Lego truck', 'ryan', 'super awesome', 'lajdsflkjsalkdjf;lasdjflkdsajf', 3, true, true, 3, 4, 5, 43, 22);
 
-INSERT INTO reviews (username, title, review, rating, buy_again, would_recommend_to_friend, play_experience, difficulty_level, value_for_money, helpful_count, unhelpful_count) VALUES (
-'ryan', 'super swesome', 'lajdsflkjsalkdjf;lasdjflkdsajf', 3, true, true, 3, 4, 5, 43, 22, 1, 2);
+-- product_id int NOT NULL,
+  -- CONSTRAINT fk_product
+  --   FOREIGN KEY(product_id)
+  --     REFERENCES products(product_id)

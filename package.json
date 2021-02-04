@@ -11,6 +11,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "psql:create": "sudo -u postgres psql && createdb sdcproducts",
     "start": "webpack -w",
     "server": "nodemon server/start.js",
     "seed": "node ./database/seed.js",

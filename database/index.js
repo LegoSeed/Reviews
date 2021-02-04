@@ -1,12 +1,41 @@
-const mongoose = require('mongoose');
+/* eslint-disable radix */
+/* eslint-disable no-console */
+const { Pool, Client } = require('pg');
 
-mongoose.connect('mongodb://localhost/FECReviews', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+const pool = new Pool({
+  user: 'altrandal',
+  host: 'localhost',
+  database: 'sdcproducts',
+  password: 'password',
+  port: 5432,
 });
 
-const db = mongoose.connection;
+const getReviewsByProductId = (request, response) => {
+  const id = parseInt(request.params.id);
 
-module.exports = db;
+  pool.query('SELECT * FROM reviews WHERE product_id=$1', [id], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
 
-// :279017
+const client = new Client({
+  user: 'altrandal',
+  host: 'localhost',
+  database: 'sdcproducts',
+  password: 'password',
+  port: 5432,
+});
+
+client.connect();
+
+client.query('SELECT NOW()', (err, res) => {
+  console.log(err, res);
+  client.end();
+});
+
+module.exports = {
+  getReviewsByProductId,
+};

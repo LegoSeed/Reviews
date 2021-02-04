@@ -2,53 +2,51 @@
 /* eslint-disable func-names */
 /* eslint-disable no-console */
 const faker = require('faker');
+const { Pool } = require('pg');
 const Review = require('./reviews');
-const db = require('./index.js');
 
-const randNum = function (max) {
-  return Math.floor(Math.random() * Math.floor(max));
-};
+const pool = new Pool({
+  user: 'altrandal',
+  host: 'localhost',
+  port: 5432,
+  password: 'password',
+  database: 'sdcproducts',
+});
 
-// Will need to update product name/id with actual name and id from group project.
+const legos = ['Colosseum', 'NES', 'Wooden Minifigure', 'Harley-Davidson', 'Demon Bull King', 'Fire Command Unit', "Monkie Kid's Cloud Jet", 'Stormtrooper', 'Hogwarts Castle', '1989 Batmobile', 'Dinosaur Fossils', 'AT-AT', 'Milennium Falcon', 'Demon Bull King', 'Iron Bull Tank', 'X-1 Ninja Charger', 'Boulder Blaster', 'Overlord Dragon', 'Elsa and the Nokk', ' MF Set', 'Monkey King', 'Unicorn', 'Indominus Rex'];
 
-const quantity = 100;
-const reviews = [];
+const ranProdId = (max) => Math.floor(Math.random() * Math.floor(max));
+const ranProdName = () => legos[Math.floor(Math.random() * legos.length)];
+const ranUserName = () => faker.internet.userName();
+const ranTitle = () => faker.random.word();
+const ranReview = () => faker.lorem.paragraph();
+const ranRating = () => Math.floor(Math.random() * 5) + 1;
+const ranTrueFalse = () => !(Math.floor(Math.random() * Math.floor(2)));
+const ranHelpUnHelp = () => Math.floor(Math.random() * 90);
 
-const seedReviews = () => {
-  console.time('start');
-  try {
-    for (let r = 0; r < quantity; r += 1) {
-      reviews.push(
-        new Review({
-          product_id: randNum(5),
-          product_name: 'Prego Ducati',
-          username: faker.internet.userName(),
-          title: faker.random.word(),
-          review: faker.lorem.paragraph(),
-          rating: 5,
-          buy_again: true,
-          would_recommend_to_friend: true,
-          play_experience: 5,
-          difficulty_level: 4,
-          value_for_money: randNum(5),
-          helpful_count: randNum(90),
-          unhelpful_count: randNum(90),
-        }),
-      );
-    }
-  } catch (err) {
-    console.log(err);
-  }
-  console.timeEnd('start');
-};
+const query = `INSERT INTO reviews (product_id, product_name, username, title, review, rating, buy_again, would_recommend_to_friend, play_experience, difficulty_level, value_for_money, helpful_count, unhelpful_count)
+ VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`;
 
-seedReviews();
+let count = 0;
+const max = 1;
 
-const insertSampleReviews = async function () {
-  await Review.create(reviews)
-    .then(console.log('database seeded'))
-    .then(() => db.close())
-    .catch((result) => console.log(result));
-};
-
-insertSampleReviews();
+while (count < max) {
+  const params = [
+    ranProdId(100),
+    ranProdName(),
+    ranUserName(),
+    ranTitle(),
+    ranReview(),
+    ranRating(),
+    ranTrueFalse(),
+    ranTrueFalse(),
+    ranRating(),
+    ranRating(),
+    ranRating(),
+    ranHelpUnHelp(),
+    ranHelpUnHelp(),
+  ];
+  console.log(params);
+  pool.query(query, params);
+  count += 1;
+}
