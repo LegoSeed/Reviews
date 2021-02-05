@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable object-curly-newline */
@@ -27,7 +29,6 @@ class App extends React.Component {
     this.getData();
   }
 
-  //  18.191.88.165
   getData() {
     axios.get(`/reviews/${Math.floor(Math.random() * 10000000)}`)
       .then((result) => this.setState({ allReviews: result.data }))
@@ -35,7 +36,7 @@ class App extends React.Component {
   }
 
   submitReview(input) {
-    axios.post('/reviews', { input })
+    axios.post('/reviews', input)
       .then(() => {
         this.getData();
       })
