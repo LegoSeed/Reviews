@@ -29,13 +29,13 @@ class App extends React.Component {
 
   //  18.191.88.165
   getData() {
-    axios.get('http://localhost:3000/reviews')
+    axios.get(`/reviews/${Math.floor(Math.random() * 10000000)}`)
       .then((result) => this.setState({ allReviews: result.data }))
       .catch((err) => console.log(err, 'error'));
   }
 
   submitReview(input) {
-    axios.post('http://localhost:3000/review', { input })
+    axios.post('/reviews', { input })
       .then(() => {
         this.getData();
       })

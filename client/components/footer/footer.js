@@ -1,5 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import {
+  Container, Row, Col, Card,
+} from 'react-bootstrap';
 import GCard from './card/card';
 import SocialFollow from './social';
 
@@ -8,7 +11,7 @@ const Footer = () => (
     <div className="support">
       <Container>
         <Row>
-          <Col >
+          <Col>
             <Row> NEED SUPPORT? CONTACT US </Row>
             <Row>Reach us by email</Row>
             <Row>OR call us at 1-800-BUY-LEGO</Row>

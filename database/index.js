@@ -23,7 +23,6 @@ const getReviewsByProductId = (req, res) => {
 };
 
 const postReviews = (req, res) => {
-  console.log(req);
   const productId = parseInt(req.body.product_id);
   const userName = req.body.username;
   const title = req.body.title;
