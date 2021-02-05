@@ -53,31 +53,5 @@ writeTenMillionReviews(writeReviews, () => {
 // DELIMITER ','
 // CSV HEADER;
 
-// console.time('start');
-// while (count < max) {
-//   const reviews = {
-//     product_id: ranProdId(100),
-//     product_name: ranProdName(),
-//     username: ranUserName(),
-//     title: ranTitle(),
-//     review: ranReview(),
-//     rating: ranRating(),
-//     buy_again: ranTrueFalse(),
-//     would_recommend_to_friend: ranTrueFalse(),
-//     play_experience: ranRating(),
-//     difficulty_level: ranRating(),
-//     value_for_money: ranRating(),
-//     helpful_count: ranHelpUnHelp(),
-//     unhelpful_count: ranHelpUnHelp(),
-//   };
-//   reviewsArray.push(reviews);
-//   count += 1;
-// }
-// console.timeEnd('start');
-// (async () => {
-//   const csv = new ObjectsToCsv(reviewsArray);
-//   await csv.toDisk('./database/reviews.csv');
-//   console.log('done');
-// })();
 // const query = `INSERT INTO reviews (product_id, product_name, username, title, review, rating, buy_again, would_recommend_to_friend, play_experience, difficulty_level, value_for_money, helpful_count, unhelpful_count)
 //  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`;
