@@ -5,9 +5,9 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mongoose = require('mongoose');
-const Review = require('../database/reviews.js');
-const Overview = require('../database/overview');
+const db = require('../database/index.js');
+
+const PORT = 3000;
 
 const app = express();
 
@@ -18,22 +18,10 @@ app.use(compression());
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.get('/reviews', async (req, res) => {
-  try {
-    let results = await Review.find().sort({ _id: -1 });
-    res.status(200).send(results);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
+app.get('/reviews/:id', db.getReviewsByProductId);
+app.post('/reviews', db.postReviews);
 
-app.post('/review', async (req, res) => {
-  try {
-    const results = await Review.create(req.body.input);
-    res.status(200).send(results);
-  } catch (err) {
-    res.status(500).send(err);
-  }
+app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
+  console.log(`Server listening at localhost:${PORT}!`);
 });
-
-module.exports = app;
