@@ -1,2 +1,7 @@
 /node_modules
 # // test
+#ignore bundle
+/public/app.js
+# ignore my csv files
+/database/productIds.csv
+/database/reviews.csv

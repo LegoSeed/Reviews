@@ -13,7 +13,7 @@
   "scripts": {
     "psql:create": "createdb sdcproducts",
     "start": "webpack -w",
-    "server": "nodemon server/start.js",
+    "server": "nodemon server/index.js",
     "reviews": "node ./database/reviewsseed.js",
     "products": "node ./database/productIdsseed.js",
     "build": "webpack",

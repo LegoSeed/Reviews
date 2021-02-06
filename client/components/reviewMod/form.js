@@ -14,7 +14,7 @@ class ReviewForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      product_id: '',
+      product_id: 989,
       title: '',
       review: '',
       rating: 5,
@@ -54,19 +54,18 @@ class ReviewForm extends React.Component {
   submit(e) {
     e.preventDefault();
     const record = {
-      product_id: 3,
-      product_name: 'Prego Ducati',
+      product_id: '989',
       username: this.state.username,
       title: this.state.title,
       review: this.state.review,
-      rating: this.state.rating,
+      rating: this.state.rating.toString(),
       buy_again: this.state.buy_again,
       would_recommend_to_friend: this.state.would_recommend_to_friend,
       play_experience: this.state.play_experience,
       difficulty_level: this.state.difficulty_level,
       value_for_money: this.state.value_for_money,
-      helpful_count: 0,
-      unhelpful_count: 0,
+      helpful_count: '75',
+      unhelpful_count: '45',
     };
     this.props.fn(record);
   }
@@ -88,7 +87,7 @@ class ReviewForm extends React.Component {
               <Form.Text className="text-muted" />
             </Form.Group>
 
-            <Form.Group as={Col} size={'sm'} controlId="formBasicEmail">
+            <Form.Group as={Col} size="sm" controlId="formBasicEmail">
               <Form.Label>Review Title</Form.Label>
               <Form.Control
                 type="text"
@@ -208,7 +207,9 @@ class ReviewForm extends React.Component {
           <Button
             onClick={this.submit}
             className="btn"
-          >Submit!</Button>
+          >
+            Submit!
+          </Button>
 
         </Form>
       </Container>
