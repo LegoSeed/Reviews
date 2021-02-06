@@ -5,3 +5,8 @@
 # ignore my csv files
 /database/productIds.csv
 /database/reviews.csv
+# ignore newrelic
+
+/newrelic_agent.log
+/newrelic.js
+/newrelic.js:Zone.Identifier

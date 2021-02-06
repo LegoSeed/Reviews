@@ -1,5 +1,6 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
+require('newrelic');
 const compression = require('compression');
 const express = require('express');
 const path = require('path');
