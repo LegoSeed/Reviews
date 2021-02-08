@@ -19,6 +19,6 @@ const review = {
 };
 
 export default function () {
-  http.post('http://localhost:3000/reviews}', review);
+  http.post('http://18.207.245.5:3002/reviews', review);
   sleep(1);
 }

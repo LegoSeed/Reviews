@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('../database/index.js');
 
-const PORT = 3000;
+const PORT = 3002;
 
 const app = express();
 

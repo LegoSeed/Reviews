@@ -4,10 +4,9 @@
 const { Pool, Client } = require('pg');
 
 const pool = new Pool({
-  user: 'altrandal',
-  host: 'localhost',
+  user: 'postgres',
+  host: '174.129.58.182',
   database: 'sdcproducts',
-  password: 'password',
   port: 5432,
 });
 
@@ -45,10 +44,9 @@ const postReviews = (req, res) => {
 };
 
 const client = new Client({
-  user: 'altrandal',
-  host: 'localhost',
+  user: 'postgres',
+  host: '174.129.58.182',
   database: 'sdcproducts',
-  password: 'password',
   port: 5432,
 });
 

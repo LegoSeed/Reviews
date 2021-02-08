@@ -4,6 +4,6 @@ import http from 'k6/http';
 import { sleep } from 'k6';
 
 export default function () {
-  http.get(`http://localhost:3000/reviews/${Math.floor(Math.random() * 10000001)}`);
+  http.get(`http://18.207.245.5:3002/reviews/${Math.floor(Math.random() * 10000001)}`);
   sleep(1);
 }
