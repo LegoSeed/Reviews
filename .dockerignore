@@ -1,2 +1,4 @@
 /node_modules
 npm-debug.log
+/database/productIds.csv
+/database/reviews.csv
