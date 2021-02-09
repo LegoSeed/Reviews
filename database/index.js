@@ -7,6 +7,7 @@ const pool = new Pool({
   user: 'postgres',
   host: '174.129.58.182',
   database: 'sdcproducts',
+  password: '',
   port: 5432,
 });
 
@@ -47,6 +48,7 @@ const client = new Client({
   user: 'postgres',
   host: '174.129.58.182',
   database: 'sdcproducts',
+  password: '',
   port: 5432,
 });
 

@@ -1,12 +1,12 @@
 /node_modules
 # // test
 #ignore bundle
-/public/app.js
+
 # ignore my csv files
 /database/productIds.csv
 /database/reviews.csv
 # ignore newrelic
-
+/loaderio-38aa64913c75ebb1509ea1986e2362e0 (1).txt
 /newrelic_agent.log
 /newrelic.js
 /newrelic.js:Zone.Identifier
